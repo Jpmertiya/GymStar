@@ -57,9 +57,6 @@ public class MyController {
 		return "admin";
 	}
 	
-	@GetMapping("/error")
-	public String error() {
-		return "errors";
-	}
+	
 
 }
