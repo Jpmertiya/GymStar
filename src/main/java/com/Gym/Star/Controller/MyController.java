@@ -56,5 +56,10 @@ public class MyController {
 		model.addAttribute("message", new Message("Welcom back sir,", "alert-success"));
 		return "admin";
 	}
+	
+	@GetMapping("/error")
+	public String error() {
+		return "errors";
+	}
 
 }
