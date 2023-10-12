@@ -22,9 +22,6 @@
 	<link rel="stylesheet" href="../static/css/magnific-popup.css" type="text/css">
 	<link rel="stylesheet" href="../static/css/slicknav.min.css" type="text/css">
 	<link rel="stylesheet" href="../static/css/style.css" type="text/css">
-	<!-- Include Thymeleaf dialect for JavaScript in your HTML head -->
-	<script
-		th:src="@{/webjars/thymeleaf-extras-springsecurity4/3.0.4.RELEASE/thymeleaf-extras-springsecurity4.js}"></script>
 
 </head>
 
@@ -33,7 +30,7 @@
 	<div id="preloder">
 		<div class="loader"></div>
 	</div>
-	
+
 	<!-- Offcanvas Menu Section Begin -->
 	<div class="offcanvas-menu-overlay"></div>
 	<div class="offcanvas-menu-wrapper">
@@ -116,7 +113,7 @@
 							<div class="hi-text">
 								<span>Shape your body</span>
 								<h1>Be <strong>strong</strong> traning hard</h1>
-								<a href="#" class="primary-btn">Get info</a>
+
 							</div>
 						</div>
 					</div>
@@ -286,13 +283,14 @@
 					<img src="../static/img/about-us.jpg" width="100%" height="100%" style="border-radius: 35px;">
 				</div>
 				<div class="col-lg-6">
-					
+
 					<!-- dynamic message -->
-						<div th:if="${session.message}" th:classappend="${session.message.type}" class="alert text-center" role="alert"
-							style="height: 40px;margin: 0px;padding-top: 5px;">
-							<p th:text="${session.message.content}" style="color: white;font-weight: 600;font-size: 22px;"></p>
-						</div>
-					
+					<div th:if="${session.message}" th:classappend="${session.message.type}" class="alert text-center"
+						role="alert" style="height: 40px;margin: 0px;padding-top: 5px;">
+						<p th:text="${session.message.content}" style="color: white;font-weight: 600;font-size: 22px;">
+						</p>
+					</div>
+
 					<div class="leave-comment">
 						<form novalidate th:action="@{/save}" method="post" th:object="${gymmers}">
 
@@ -338,7 +336,12 @@
 	</section>
 
 
-
+	<div class="row" style="background-color: black;border: 2px solid goldenrod;width: 100%;padding: 0px;margin:0px">
+		<Input type="text"  id="payment_field" class="form-control mt-1" placeholder="&#8377  Donate " />
+		<div class="container text-center">
+			<button class="text-center mt-2 b donate" onclick="fun()">Donate</button>
+		</div>
+	</div>
 
 	<!-- Get In Touch Section Begin -->
 	<div class="gettouch-section" id="contact">
@@ -457,7 +460,8 @@
 	<script src="../static/js/jquery.slicknav.js"></script>
 	<script src="../static/js/owl.carousel.min.js"></script>
 	<script src="../static/js/main.js"></script>
-
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
 	<th:block th:text="${@sessionHelper.removeSession()}"></th:block>
 
 
